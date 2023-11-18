@@ -9,6 +9,11 @@
         el = document.getElementById('server-time');
         el.innerHTML = 'Server time: ' + timeString;
       });
+
+      socket.on('hi', () => {
+        el = document.getElementById('futter');
+        el.innerHTML = 'app send: hi';
+      });
     </script>
   </head>
   <body>
