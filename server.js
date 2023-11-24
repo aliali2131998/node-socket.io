@@ -17,10 +17,9 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => console.log('Client disconnected'));
    // استماع إلى حدث "chatMessage"
   socket.on('chatMessage', (data) => {
-    console.log('Received chat message:', data.message);
-
+    //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
-    socket.emit('chatMessageResponse', { message: 'Server received your message:'+data.message });
+    socket.emit('chatMessageResponse', { message: 'Server received messagee :'+data });
   });
   
 });
