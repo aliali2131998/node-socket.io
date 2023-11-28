@@ -24,11 +24,11 @@ io.on('connection', (socket) => {
   });
   socket.on('setchat', (data) => {
     //console.log(data);
-    chats[data['Chatid']] = socket;
-    console.log(chats);
+    // chats[data['Chatid']] = socket;
+    // console.log(chats);
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
-    socket.emit('getchat', chats);
+    socket.emit('getchat', data);
   });
   
 });
