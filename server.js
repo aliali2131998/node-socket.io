@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
     socket.emit('chatMessageResponse', data);
   });
   socket.on('setchat', (data) => {
-    console.log(data);
+    //console.log(data);
     chats[data['Chatid']] = socket;
     console.log(chats);
     //console.log('Received chat message:', data);
