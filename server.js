@@ -11,7 +11,8 @@ const server = express()
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 const io = socketIO(server);
-
+var clients = {};
+var chats = {};
 io.on('connection', (socket) => {
   console.log('Client connected');
   socket.on('disconnect', () => console.log('Client disconnected'));
@@ -20,6 +21,14 @@ io.on('connection', (socket) => {
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
     socket.emit('chatMessageResponse', data);
+  });
+  socket.on('setchat', (data) => {
+    console.log(data);
+    chats[data['Chatid']] = socket;
+    console.log(chats);
+    //console.log('Received chat message:', data);
+    // إرسال رد إلى الجهة العميلية
+    socket.emit('getchat', chats);
   });
   
 });
