@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
     // console.log(chats);
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
-    socket.emit('getchat', chats[data]);
+    socket.emit('getchat', chats);
   });
   
 });
