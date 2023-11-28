@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
   });
   socket.on('setchat', (data) => {
     //console.log(data);
-    // chats[data['Chatid']] = socket;
+      chats[data] = socket;
     // console.log(chats);
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
