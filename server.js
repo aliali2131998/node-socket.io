@@ -20,7 +20,8 @@ io.on('connection', (socket) => {
   socket.on('chatMessage', (data) => {
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
-    socket.emit('chatMessageResponse', data);
+    
+    socket.emit('chatMessageResponse', data['Chatid']);
   });
   socket.on('setchat', (data) => {
     //console.log(data);
