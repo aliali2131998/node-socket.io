@@ -20,8 +20,9 @@ io.on('connection', (socket) => {
   socket.on('chatMessage', (data) => {
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
-    
-    socket.emit('chatMessageResponse', data['Chatid']);
+    //let targetId = msg.targetId;
+    if (chats[data['Chatid']]) chats[data['Chatid']].emit("chatMessageResponse", data);
+    //socket.emit('chatMessageResponse', data['Chatid']);
   });
   socket.on('setchat', (data) => {
     //console.log(data);
@@ -29,7 +30,7 @@ io.on('connection', (socket) => {
     // console.log(chats);
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
-    //socket.emit('getchat', chats);
+    socket.emit('getchat', 'set chat successfully ');
   });
   
 });
