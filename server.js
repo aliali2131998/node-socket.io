@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
       //chats[data['Chatid']] = socket
       //chats[data['Chatid']].emit("chatMessageResponse", data);
       
-    }
+    //}
     
     //socket.emit('chatMessageResponse', data['Chatid']);
   });
