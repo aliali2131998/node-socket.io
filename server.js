@@ -21,7 +21,8 @@ io.on('connection', (socket) => {
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
     //let targetId = msg.targetId;
-    socket.emit("chatMessageResponse", data);
+    socket.to(data['Chatid']).emit("chatMessageResponse", data);
+    //socket.emit("chatMessageResponse", data);
    //if (chats[data['Chatid']]) chats[data['Chatid']].emit("chatMessageResponse", data);
    // if (chats[data['Chatid']]){
      // chats[data['Chatid']].emit("chatMessageResponse", data);
@@ -35,11 +36,12 @@ io.on('connection', (socket) => {
   });
   socket.on('setchat', (data) => {
     //console.log(data);
-      chats[data] = socket;
+      //chats[data] = socket;
+      socket.join(data);
     // console.log(chats);
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
-    socket.emit('getchat', 'set chat successfully ');
+    socket.emit('getchat', 'someone joined');
   });
   
 });
