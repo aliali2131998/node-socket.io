@@ -21,12 +21,13 @@ io.on('connection', (socket) => {
     //console.log('Received chat message:', data);
     // إرسال رد إلى الجهة العميلية
     //let targetId = msg.targetId;
+    socket.emit("chatMessageResponse", data);
    //if (chats[data['Chatid']]) chats[data['Chatid']].emit("chatMessageResponse", data);
-    if (chats[data['Chatid']]){
-      chats[data['Chatid']].emit("chatMessageResponse", data);
-    }else{
-      chats[data['Chatid']] = socket
-      chats[data['Chatid']].emit("chatMessageResponse", data);
+   // if (chats[data['Chatid']]){
+     // chats[data['Chatid']].emit("chatMessageResponse", data);
+   // }else{
+      //chats[data['Chatid']] = socket
+      //chats[data['Chatid']].emit("chatMessageResponse", data);
       
     }
     
