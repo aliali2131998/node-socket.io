@@ -26,6 +26,7 @@ io.on('connection', (socket) => {
       chats[data['Chatid']].emit("chatMessageResponse", data);
     }else{
       chats[data['Chatid']] = socket
+      chats[data['Chatid']].emit("chatMessageResponse", data);
       
     }
     
